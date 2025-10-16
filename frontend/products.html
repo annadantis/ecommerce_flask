@@ -6,6 +6,12 @@
 </head>
 <body>
     <h2>Products</h2>
+    <select id="categoryFilter" onchange="filterByCategory()">
+    <option value="">All Categories</option>
+    <option value="1">Electronics</option>
+    <option value="3">Books</option>
+    <option value="2">Clothing</option>
+</select>
     <div id="products"></div>
     <a href="cart.html">Go to Cart</a>
     <script src="script.js"></script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Manage Products</title>
+</head>
+<body>
+  <h2>Admin - Manage Products</h2>
+  <div id="products"></div>
+
+  <h3>Add New Product</h3>
+  <form onsubmit="event.preventDefault(); addProduct();">
+    <input type="text" id="name" placeholder="Product Name" required><br>
+    <input type="text" id="description" placeholder="Description"><br>
+    <input type="number" id="price" placeholder="Price" step="0.01" required><br>
+    <input type="number" id="stock" placeholder="Stock" required><br>
+    <input type="number" id="category_id" placeholder="Category ID"><br>
+    <input type="text" id="image_url" placeholder="Image URL"><br><br>
+    <button type="submit">Add Product</button>
+  </form>
+
+  <p id="message"></p>
+  <button onclick="logout()">Logout</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -4,6 +4,9 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+
+app.secret_key = 'your_super_secret_key_123'
+
 # Import routes
 from routes.users import user_bp
 from routes.products import product_bp

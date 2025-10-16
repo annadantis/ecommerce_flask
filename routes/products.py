@@ -6,12 +6,20 @@ product_bp = Blueprint('product_bp', __name__)
 # List all products
 @product_bp.route('/', methods=['GET'])
 def get_products():
+    category_id = request.args.get('category_id')  # optional
+
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM products")
+
+    if category_id:
+        cursor.execute("SELECT * FROM products WHERE category_id=%s", (category_id,))
+    else:
+        cursor.execute("SELECT * FROM products")
+    
     products = cursor.fetchall()
     cursor.close()
     conn.close()
+
     return jsonify(products)
 
 # Add a new product (admin)

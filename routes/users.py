@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, session
 from db.connection import get_connection
 import bcrypt
 
@@ -22,6 +22,10 @@ def login_user():
     conn.close()
 
     if user and bcrypt.checkpw(password.encode('utf-8'), user['password_hash'].encode('utf-8')):
+    # Set session info
+        session['user_id'] = user['user_id']
+        session['role'] = user['role']  # 'admin' or 'customer'
+    
         return jsonify({
             'message': 'Login successful!',
             'user': {

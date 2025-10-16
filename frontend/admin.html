@@ -2,23 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin - Products</title>
+    <title>Admin Dashboard - Products</title>
 </head>
 <body>
-    <h2>Admin - Products</h2>
-    <div id="products"></div>
 
-    <h3>Add New Product</h3>
-    Name: <input type="text" id="name"><br>
-    Description: <input type="text" id="description"><br>
-    Price: <input type="number" id="price" step="0.01"><br>
-    Stock: <input type="number" id="stock"><br>
-    Category ID: <input type="number" id="category_id"><br>
+<h2>Admin Dashboard - Products</h2>
+
+<!-- Products List -->
+<div id="products"></div>
+
+<!-- Add New Product Form -->
+<h3>Add New Product</h3>
+<form onsubmit="event.preventDefault(); addProduct();">
+    Name: <input type="text" id="name" required><br>
+    Description: <input type="text" id="description" required><br>
+    Price: <input type="number" id="price" step="0.01" required><br>
+    Stock: <input type="number" id="stock" required><br>
+    Category ID: <input type="number" id="category_id" required><br>
     Image URL: <input type="text" id="image_url"><br>
-    <button onclick="addProduct()">Add Product</button>
+    <button type="submit">Add Product</button>
+</form>
 
-    <p id="message"></p>
-    <script src="script.js"></script>
+<p id="message"></p>
+
+<!-- Categories Management -->
+<h3>Manage Categories</h3>
+<div id="categories"></div>
+
+<form onsubmit="event.preventDefault(); addCategory();">
+    Category Name: <input type="text" id="category_name" required><br>
+    Description: <input type="text" id="category_description"><br>
+    <button type="submit">Add Category</button>
+</form>
+
+<p id="catMessage"></p>
+
+<!-- Include your existing script.js -->
+<script src="script.js"></script>
+
 </body>
 </html>
 

@@ -5,10 +5,24 @@
     <title>E-Commerce</title>
 </head>
 <body>
-    <h1>Welcome to My E-Commerce Store</h1>
+    <h1>NEXTCART : E-Commerce Store</h1>
     <a href="login.html">Login</a> | 
     <a href="products.html">View Products</a> | 
-    <a href="admin.html">Admin</a> |
+   <a href="#" id="adminBtn">Admin</a>
+
     <a href="register.html">Register</a> 
+    <script>
+document.getElementById("adminBtn").addEventListener("click", async function() {
+    const isAdmin = sessionStorage.getItem('isAdmin');
+
+    if (!isAdmin) {
+        alert("🚫 Admin only!");
+        return;
+    }
+
+    // Navigate to admin page
+    window.location.href = "admin.html";
+});
+</script>
 </body>
 </html>
